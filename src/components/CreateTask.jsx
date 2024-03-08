@@ -34,7 +34,7 @@ const CreateTask = ({ tasks, setTasks }) => {
         },
         {
           id: "aa960e40-09fb-4fe2-b236-f1a0765266e9",
-          name: "Solve Leetcode daily problem",
+          name: "Leetcode daily problem",
           status: "closed",
         },
       ];
