@@ -77,7 +77,6 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
         return mTasks;
     });
   };
-  
 
   return (
     <div ref={drop} className={`w-64 rounded-md p-2 ${isOver ? "bg-slate-500":""}`}>
