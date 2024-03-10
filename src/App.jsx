@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import toast, { Toaster } from "react-hot-toast";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-
+  
 function App() {
   const [tasks, setTasks] = useState([]);
 
@@ -17,10 +17,10 @@ function App() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <Toaster />
-      <div className="bg-slate-100 w-screen h-screen flex flex-col items-center  gap-10  ">
+      <Toaster/>
+      <div id="body" className="bg-cyan-100 w-screen h-screen flex flex-col items-center  gap-10  ">
         <Navbar/>
-        <CreateTask tasks={tasks} setTasks={setTasks} />
+        <CreateTask tasks={tasks} setTasks={setTasks}/>
         <ListTasks tasks={tasks} setTasks={setTasks} />
       </div>
     </DndProvider>

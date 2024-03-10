@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { v4 as uuidv4 } from "uuid";
+import "./Style.css";
 
 const CreateTask = ({ tasks, setTasks }) => {
   const [task, setTask] = useState({
@@ -76,14 +77,14 @@ const CreateTask = ({ tasks, setTasks }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        className="border-2 border-slate-400 bg-slate-100 rounded-md mr-4 h-10 w-64 px-1"
+        className="font-style border-2 border-slate-400 bg-slate-100 rounded-md mr-4 h-10 w-64 px-1"
         value={task.name}
         onChange={(e) =>
           setTask({ ...task, name: e.target.value })
         }
         key={task.id} // Add key for proper re-rendering
       />
-      <button className="bg-cyan-500 rounded-md px-4 h-10 text-white">
+      <button className="font-style bg-cyan-500 rounded-md px-4 h-10 text-white">
         Create
       </button>
     </form>

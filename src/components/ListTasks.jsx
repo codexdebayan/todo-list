@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import toast from "react-hot-toast";
+import "./Style.css";
 
 const ListTasks = ({ tasks, setTasks }) => {
   const [todos, setTodos] = useState([]);
@@ -21,7 +22,7 @@ const ListTasks = ({ tasks, setTasks }) => {
 
   return (
     <div>
-      <div className="flex gap-16">
+      <div className="flex gap-10">
         {statuses.map((status, index) => (
           <Section
             key={index}
@@ -47,7 +48,7 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
     }),
   }));
 
-  let text = "Todo";
+  let text = "Not Started";
   let bg = "bg-slate-500";
   let taskToMap = todos;
 
@@ -57,7 +58,7 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
     taskToMap = inProgress;
   }
   if (status === "closed") {
-    text = "Closed";
+    text = "Completed";
     bg = "bg-green-500";
     taskToMap = closed;
   }
@@ -72,7 +73,7 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
         });
         localStorage.setItem("tasks", JSON.stringify(mTasks));
 
-        toast("Task status changed",{icon: "✅"});
+        toast("Task status changed",{icon: "👍"});
 
         return mTasks;
     });
@@ -92,10 +93,10 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
 const Header = ({ text, bg, count }) => {
   return (
     <div
-      className={`${bg} flex items-center h-10 pl-4 rounded-md uppercase text-sm text-white`}
+      className={`${bg} font-style flex items-center h-10 pl-4 rounded-md uppercase text-sm text-white`}
     >
       {text}{" "}
-      <div className="ml-2 bg-white h-5 w-5 text-black rounded-full flex items-center justify-center">
+      <div className=" ml-2 bg-white h-5 w-5 text-black rounded-full flex items-center justify-center">
         {count}
       </div>
     </div>
@@ -119,13 +120,13 @@ const Task = ({ task, tasks, setTasks }) => {
 
     setTasks(fTasks);
 
-    toast("Task removed", { icon: "🗑️" });
+    toast("Task removed ", { icon: "🗑️" });
   };
 
   return (
     <div
       ref={drag}
-      className={`relative p-4 mt-8 shadow-md rounded-md ${
+      className={`font-style relative p-2 mt-8  shadow-md rounded-md bg-lime-100 ${
         isDragging ? "opacity-25" : "opacity-100"
       } cursor-grab`}
     >
