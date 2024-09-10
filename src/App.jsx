@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import toast, { Toaster } from "react-hot-toast";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { Analytics } from "@vercel/analytics/react"
   
 function App() {
   const [tasks, setTasks] = useState([]);
